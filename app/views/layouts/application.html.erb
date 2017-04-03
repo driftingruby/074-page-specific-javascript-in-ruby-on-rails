@@ -6,9 +6,10 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Template" %>">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= tag :meta, name: :psj, action: action_name, controller: controller_name %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+  <%= content_tag :body, data: { action: action_name, controller: controller_name } do %>
     <header>
       <%= render 'layouts/navigation' %>
     </header>
@@ -18,5 +19,5 @@
         <%= yield %>
       </div>
     </main>
-  </body>
+  <% end %>
 </html>

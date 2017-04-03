@@ -1,3 +1,7 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on 'turbolinks:load', ->
+  return unless page.controller() == 'visitors' && page.action() == 'index'
+  # return unless $('meta[name=psj]').attr('controller') == 'visitors' # && $('meta[name=psj]').attr('action') == 'index'
+  # return unless $('body').data('controller') == 'visitors' && $('body').data('action') == 'index'
+  $('main').append '<li>Hello from visitors</li>'
+
+
